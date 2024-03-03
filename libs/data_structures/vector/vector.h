@@ -50,5 +50,6 @@ void test_back_oneElementInVector();
 
 void test_front_oneElementInVector();
 
+void test();
 
 #endif

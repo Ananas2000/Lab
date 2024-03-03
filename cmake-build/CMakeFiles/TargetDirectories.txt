@@ -1,0 +1,11 @@
+D:/лаба ОП/2 sem/14/proj/cmake-build/CMakeFiles/laba.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/CMakeFiles/edit_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/CMakeFiles/rebuild_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/CMakeFiles/edit_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/CMakeFiles/rebuild_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/data_structures/CMakeFiles/data_structures.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/data_structures/CMakeFiles/edit_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/data_structures/CMakeFiles/rebuild_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/algorithms/CMakeFiles/algorithms.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/algorithms/CMakeFiles/edit_cache.dir
+D:/лаба ОП/2 sem/14/proj/cmake-build/libs/algorithms/CMakeFiles/rebuild_cache.dir

@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "vector.h": "c"
+        "vector.h": "c",
+        "stdio.h": "c",
+        "algorithm.h": "c",
+        "bitset.h": "c"
     }
 }
