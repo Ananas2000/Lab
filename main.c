@@ -2,8 +2,12 @@
 #include <stdio.h>
 #include "libs\data_structures\vector\vector.h"
 
-int main(){
-    vector v = createVector(SIZE_MAX);
-    
-    return 0;
+void test() {
+    test_pushBack_emptyVector();
+    test_pushBack_fullVector();
+    // последующие тесты
+}
+
+int main() {
+
 }
