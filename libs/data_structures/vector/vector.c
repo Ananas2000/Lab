@@ -1,5 +1,8 @@
 #include <stdio.h>
 #include "vector.h"
+#include <malloc.h>
+#include <stdbool.h>
+#include <assert.h>
 
 vector createVector(size_t n) {
     vector result;

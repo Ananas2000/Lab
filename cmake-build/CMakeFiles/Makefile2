@@ -131,12 +131,12 @@ CMakeFiles/laba.dir/all: libs/data_structures/CMakeFiles/data_structures.dir/all
 CMakeFiles/laba.dir/all: libs/algorithms/CMakeFiles/algorithms.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\laba.dir\build.make CMakeFiles/laba.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\laba.dir\build.make CMakeFiles/laba.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=7,8 "Built target laba"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=8,9 "Built target laba"
 .PHONY : CMakeFiles/laba.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/laba.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 8
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 9
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 CMakeFiles/laba.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 0
 .PHONY : CMakeFiles/laba.dir/rule
@@ -157,12 +157,12 @@ CMakeFiles/laba.dir/clean:
 libs/data_structures/CMakeFiles/data_structures.dir/all:
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/depend
 	$(MAKE) $(MAKESILENT) -f libs\data_structures\CMakeFiles\data_structures.dir\build.make libs/data_structures/CMakeFiles/data_structures.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=4,5,6 "Built target data_structures"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=4,5,6,7 "Built target data_structures"
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/all
 
 # Build rule for subdir invocation for target.
 libs/data_structures/CMakeFiles/data_structures.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 3
+	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 4
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Makefile2 libs/data_structures/CMakeFiles/data_structures.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start "D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" 0
 .PHONY : libs/data_structures/CMakeFiles/data_structures.dir/rule

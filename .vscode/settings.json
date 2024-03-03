@@ -3,6 +3,10 @@
         "vector.h": "c",
         "stdio.h": "c",
         "algorithm.h": "c",
-        "bitset.h": "c"
+        "bitset.h": "c",
+        "assert.h": "c",
+        "memory.h": "c",
+        "stdbool.h": "c",
+        "vectorvoid.h": "c"
     }
 }

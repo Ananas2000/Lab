@@ -96,19 +96,35 @@ libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.s: cmake_for
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/data_structures.dir/vector/vector.c.s"
 	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "D:\лаба ОП\2 sem\14\proj\libs\data_structures\vector\vector.c" -o CMakeFiles\data_structures.dir\vector\vector.c.s
 
+libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj: libs/data_structures/CMakeFiles/data_structures.dir/flags.make
+libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj: D:/лаба\ ОП/2\ sem/14/proj/libs/data_structures/vector/vectorVoid.c
+libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj: libs/data_structures/CMakeFiles/data_structures.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Building C object libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj"
+	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj -MF CMakeFiles\data_structures.dir\vector\vectorVoid.c.obj.d -o CMakeFiles\data_structures.dir\vector\vectorVoid.c.obj -c "D:\лаба ОП\2 sem\14\proj\libs\data_structures\vector\vectorVoid.c"
+
+libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/data_structures.dir/vector/vectorVoid.c.i"
+	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E "D:\лаба ОП\2 sem\14\proj\libs\data_structures\vector\vectorVoid.c" > CMakeFiles\data_structures.dir\vector\vectorVoid.c.i
+
+libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/data_structures.dir/vector/vectorVoid.c.s"
+	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && C:\MinGW\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S "D:\лаба ОП\2 sem\14\proj\libs\data_structures\vector\vectorVoid.c" -o CMakeFiles\data_structures.dir\vector\vectorVoid.c.s
+
 # Object files for target data_structures
 data_structures_OBJECTS = \
 "CMakeFiles/data_structures.dir/bitset/bitset.c.obj" \
-"CMakeFiles/data_structures.dir/vector/vector.c.obj"
+"CMakeFiles/data_structures.dir/vector/vector.c.obj" \
+"CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj"
 
 # External object files for target data_structures
 data_structures_EXTERNAL_OBJECTS =
 
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/bitset/bitset.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/vector/vector.c.obj
+libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/vector/vectorVoid.c.obj
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/build.make
 libs/data_structures/libdata_structures.a: libs/data_structures/CMakeFiles/data_structures.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_3) "Linking C static library libdata_structures.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir="D:\лаба ОП\2 sem\14\proj\cmake-build\CMakeFiles" --progress-num=$(CMAKE_PROGRESS_4) "Linking C static library libdata_structures.a"
 	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && $(CMAKE_COMMAND) -P CMakeFiles\data_structures.dir\cmake_clean_target.cmake
 	cd /d "D:\лаба ОП\2 sem\14\proj\cmake-build\libs\data_structures" && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\data_structures.dir\link.txt --verbose=$(VERBOSE)
 
