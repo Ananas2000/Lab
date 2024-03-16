@@ -1,4 +1,6 @@
 #include "matrix.h"
+#include <assert.h>
+#include <memory.h>
 #include <stdio.h>
 #include <malloc.h>
 
@@ -14,6 +16,16 @@ matrix *getMemArrayOfMatrices(int nMatrices, int nRows, int nCols) {
     for (int i = 0; i < nMatrices; i++)
         ms[i] = getMemMatrix(nRows, nCols);
     return ms;
+}
+
+int getSum(int *a, int n) {
+    int result = 0;
+
+    for (int i = 0; i < n; i++) {
+        result += a[i];
+    }
+
+    return result;
 }
 
 void freeMemMatrix(matrix *m) {
@@ -60,3 +72,67 @@ void outputMatrices(matrix *ms, int nMatrices) {
     }
 }
 
+void swapRows(matrix *m, int i1, int i2) {
+    assert(i1 < m->nRows && i2 < m->nRows);
+
+    int *temp = m->values[i1];
+
+    memcpy(&m->values[i1], &m->values[i2], sizeof(int *));
+    memcpy(&m->values[i2], &temp, sizeof(int *));
+}
+
+void swapColumns(matrix *m, int j1, int j2) {
+    assert(j1 < m->nCols && j2 < m->nCols);
+    for (int i = 0; i < m->nRows; i++) {
+        int temp = m->values[i][j1];
+
+        memcpy(&m->values[i][j1], &m->values[i][j2], sizeof(int));
+        memcpy(&m->values[i][j2], &temp, sizeof(int));
+    }
+}
+
+void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int)) {
+    int *values = malloc(sizeof(int) * m.nRows);
+
+    for (int i = 0; i < m.nRows; i++) {
+        values[i] = criteria(m.values[i], m.nCols);
+    }
+
+    for (int i = 0; i < m.nRows; i++) {
+        for (int j = 0; j < i; j++) {
+            if (values[i] < values[j]) {
+                int temp = values[i];
+                values[i] = values[j];
+                values[j] = temp;
+                swapRows(&m, i, j);
+            }
+        }
+    }
+
+    free(values);
+}
+
+void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int)) {
+    int *values = malloc(sizeof(int) * m.nCols);
+
+    for (int i = 0; i < m.nCols; i++) {
+        int *column = malloc(sizeof(int) * m.nRows);
+
+        for (int j = 0; j < m.nRows; j++) {
+            column[j] = m.values[j][i];
+        }
+
+        values[i] = criteria(column, m.nRows);
+    }
+
+    for (int i = 0; i < m.nCols; i++) {
+        for (int j = 0; j < i; j++) {
+            if (values[i] < values[j]) {
+                int temp = values[i];
+                values[i] = values[j];
+                values[j] = temp;
+                swapColumns(&m, i, j);
+            }
+        }
+    }
+}
