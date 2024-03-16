@@ -2,6 +2,7 @@
 #include <assert.h>
 #include <memory.h>
 #include <stdio.h>
+#include <stdbool.h>
 #include <malloc.h>
 
 matrix getMemMatrix(int nRows, int nCols) {
@@ -135,4 +136,76 @@ void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int)) 
             }
         }
     }
+}
+
+bool isSquareMatrix(matrix *m) {
+    return m->nRows == m->nCols ? true : false;
+}
+
+bool areTwoMatricesEqual(matrix *m1, matrix *m2) {
+    if (m1->nCols != m2->nCols || m1->nRows != m2->nRows) {
+        return false;
+    }
+
+    for (int i = 0; i < m1->nRows; i++) {
+        if (memcmp(m1->values[i], m2->values[i], sizeof(int) * m1->nCols) != 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+bool isEMatrix(matrix *m) {
+    if (!isSquareMatrix(m)) {
+        return false;
+    }
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            if (i == j && m->values[i][j] != 1) {
+                return false;
+            } else if (i != j && m->values[i][j] != 0) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+bool isSymmetricMatrix(matrix *m) {
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = 0; j < m->nCols; j++) {
+            if (m->values[i][j] != m->values[j][i]) {
+                return false;
+            }
+        }
+    }
+
+    return true;
+}
+
+void transposeSquareMatrix(matrix *m) {
+    assert(isSquareMatrix(m));
+
+    for (int i = 0; i < m->nRows; i++) {
+        for (int j = i + 1; j < m->nCols; j++) {
+            int temp = m->values[i][j];
+            m->values[i][j] = m->values[j][i];
+            m->values[j][i] = temp;
+        }
+    }
+}
+
+void transposeMatrix(matrix *m) {
+    matrix result = getMemMatrix(m->nCols, m->nRows);
+
+    for (int i = 0; i < m->nCols; i++) {
+        for (int j = 0; j < m->nRows; j++) {
+            result.values[i][j] = m->values[j][i];
+        }
+    }
+
+    memcpy(m, &result, sizeof(matrix));
 }

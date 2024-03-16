@@ -1,5 +1,6 @@
 #ifndef UNTITLED_MATRIX_H
 #define UNTITLED_MATRIX_H
+#include <stdbool.h>
 
 typedef struct matrix {
     int **values; // элементы матрицы
@@ -37,5 +38,17 @@ void swapColumns(matrix m, int j1, int j2);
 void insertionSortRowsMatrixByRowCriteria(matrix m, int (*criteria)(int*, int));
 
 void selectionSortColsMatrixByColCriteria(matrix m, int (*criteria)(int*, int));
+
+bool isSquareMatrix(matrix *m);
+
+bool areTwoMatricesEqual(matrix *m1, matrix *m2);
+
+bool isEMatrix(matrix *m);
+
+bool isSymmetricMatrix(matrix *m);
+
+void transposeSquareMatrix(matrix *m);
+
+void transposeMatrix(matrix *m);
 
 #endif
