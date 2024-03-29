@@ -87,4 +87,8 @@ void tests();
 
 void swapRowsWithMinAndMaxEls(matrix *m);
 
+int getMax(int *a, int n);
+
+void sortRowsByMinElement(matrix *m);
+
 #endif
