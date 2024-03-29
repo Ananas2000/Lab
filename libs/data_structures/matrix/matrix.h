@@ -105,4 +105,8 @@ void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
 bool isMutuallyInverseMatrices(matrix m1, matrix m2);
 
+void testSwapRowsWithMinAndMaxEls1();
+
+void testSwapRowsWithMinAndMaxEls2();
+
 #endif
