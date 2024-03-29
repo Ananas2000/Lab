@@ -113,4 +113,8 @@ void test_sortRowsByMinElement_1();
 
 void test_sortRowsByMinElement_2();
 
+void test_sortColsByMinElement_1();
+
+void test_sortColsByMinElement_2();
+
 #endif

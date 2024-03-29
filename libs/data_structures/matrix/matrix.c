@@ -665,3 +665,27 @@ void test_sortRowsByMinElement_2() {
     freeMemMatrix(&m);
 }
 
+void test_sortColsByMinElement_1() {
+    matrix m = createMatrixFromArray((int[]) {3, 5, 2, 4, 3, 3,
+                                              2, 5, 1, 8, 2, 7,
+                                              6, 1, 4, 4, 8, 3},3, 6);
+    matrix result = createMatrixFromArray((int[]) {5, 2, 3, 3, 3, 4,
+                                              5, 1, 2, 2, 7, 8,
+                                              1, 4, 6, 8, 3, 4},3, 6);
+
+    sortColsByMinElement(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_sortColsByMinElement_2() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    sortColsByMinElement(&m);
+
+    freeMemMatrix(&m);
+}
+
