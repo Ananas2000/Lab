@@ -103,4 +103,6 @@ bool isUnique(int *a, int n);
 
 void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
 
+bool isMutuallyInverseMatrices(matrix m1, matrix m2);
+
 #endif
