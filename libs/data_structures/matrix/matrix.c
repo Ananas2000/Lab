@@ -609,7 +609,7 @@ bool isMutuallyInverseMatrices(matrix m1, matrix m2) {
     }
 }
 
-void testSwapRowsWithMinAndMaxEls1() {
+void test_SwapRowsWithMinAndMaxEls1() {
     matrix m = createMatrixFromArray((int[]) {9, 4, 3,
                                               5, 2, 6,
                                               7, 8, 1},3, 3);
@@ -625,7 +625,7 @@ void testSwapRowsWithMinAndMaxEls1() {
     freeMemMatrix(&result);
 }
 
-void testSwapRowsWithMinAndMaxEls2() {
+void test_SwapRowsWithMinAndMaxEls2() {
     matrix m = createMatrixFromArray((int[]) {7, 4, 3,
                                               5, 2, 6,
                                               9, 8, 1},3, 3);
@@ -639,5 +639,29 @@ void testSwapRowsWithMinAndMaxEls2() {
 
     freeMemMatrix(&m);
     freeMemMatrix(&result);
+}
+
+void test_sortRowsByMinElement_1() {
+    matrix m = createMatrixFromArray((int[]) {7, 1, 2,
+                                              1, 8, 1,
+                                              3, 2, 3},3, 3);
+    matrix result = createMatrixFromArray((int[]) {3, 2, 3,
+                                              7, 1, 2,
+                                              1, 8, 1},3, 3);
+
+    sortRowsByMinElement(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_sortRowsByMinElement_2() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    sortRowsByMinElement(&m);
+
+    freeMemMatrix(&m);
 }
 
