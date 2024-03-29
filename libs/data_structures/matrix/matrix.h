@@ -85,4 +85,6 @@ void test_get_max_value_pos();
 
 void tests();
 
+void swapRowsWithMinAndMaxEls(matrix *m);
+
 #endif

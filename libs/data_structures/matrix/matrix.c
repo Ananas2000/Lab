@@ -438,3 +438,12 @@ void tests() {
     test_get_min_value_pos();
     test_get_max_value_pos();
 }
+
+void swapRowsWithMinAndMaxEls(matrix *m) {
+    position max_pos = getMaxValuePos(*m);
+    position min_pos = getMinValuePos(*m);
+
+    if (max_pos.rowIndex != min_pos.rowIndex) {
+        swapRows(m, max_pos.rowIndex, min_pos.rowIndex);
+    }
+}
