@@ -95,4 +95,12 @@ int getMin(int *a, int n);
 
 void sortColsByMinElement(matrix m);
 
+matrix mulMatrices(matrix m1, matrix m2);
+
+void getSquareOfMatrixIfSymmetric(matrix *m);
+
+bool isUnique(int *a, int n);
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix m);
+
 #endif

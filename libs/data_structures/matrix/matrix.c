@@ -529,3 +529,69 @@ void sortColsByMinElement(matrix *m) {
     }
 }
 
+matrix mulMatrices(matrix m1, matrix m2) {
+    int rows = m1.nRows;
+    int cols = m1.nCols;
+
+    matrix result = getMemMatrix(rows, cols);
+
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            int sum = 0;
+
+            for (int g = 0; g < rows; g++) {
+                sum += m1.values[i][g] * m2.values[g][j];
+            }
+
+            result.values[i][j] = sum;
+        }
+    }
+
+    return result;
+}
+
+void getSquareOfMatrixIfSymmetric(matrix *m) {
+    if (isSymmetricMatrix(m)) {
+        *m = mulMatrices(*m, *m);
+    }
+}
+
+bool isUnique(int *a, int n) {
+    int *unique_numbers = malloc(sizeof(int)*n);
+    int len = 0;
+
+    for (int i = 0; i < n; i++) {
+        bool is_in = false;
+
+        for (int j = 0; j < len && !is_in; j++) {
+            if (a[i] == unique_numbers[j]) {
+                is_in = true;
+            }
+        }
+
+        if (!is_in) {
+            unique_numbers[len++] = a[i];
+        } else {
+            free(unique_numbers);
+            return false;
+        }
+    }
+
+    return true;
+}
+
+void transposeIfMatrixHasNotEqualSumOfRows(matrix *m) {
+    if (isSquareMatrix(m)) {
+        int *sums = malloc(sizeof(int)*m->nRows);
+
+        for (int i = 0; i < m->nRows; i++) {
+            sums[i] = getSum(m->values[i], m->nCols);
+        }
+
+        if (isUnique(sums, m->nRows)) {
+            transposeSquareMatrix(m);
+            free(sums);
+        }
+    }
+}
+
