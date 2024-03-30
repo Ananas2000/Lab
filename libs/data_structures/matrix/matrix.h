@@ -179,4 +179,14 @@ void test_swapPenultimateRow_1();
 
 void test_swapPenultimateRow_2();
 
+bool isNonDescendingSorted(int *a, int n);
+
+bool hasAllNonDescendingRows(matrix m);
+
+int countNonDescendingRowsMatrices(matrix *ms, int nMatrix);
+
+void test_countNonDescendingRowsMatrices_1();
+
+void test_countNonDescendingRowsMatrices_2();
+
 #endif
