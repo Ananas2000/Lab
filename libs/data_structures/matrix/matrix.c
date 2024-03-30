@@ -938,3 +938,20 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int*, int
 void sortByDistances(matrix m) {
     insertionSortRowsMatrixByRowCriteriaF(m, getDistance);
 }
+
+void test_sortByDistances() {
+    matrix m = createMatrixFromArray((int[]) {7, 12,
+                                              9, 2,
+                                              6, 8},3, 2);
+    matrix result = createMatrixFromArray((int[]) {9, 2,
+                                              6, 8,
+                                              7, 12},3, 2);
+
+    sortByDistances(m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+

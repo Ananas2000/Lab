@@ -157,4 +157,6 @@ void insertionSortRowsMatrixByRowCriteriaF(matrix m, float (*criteria)(int *, in
 
 void sortByDistances(matrix m);
 
+void test_sortByDistances();
+
 #endif
