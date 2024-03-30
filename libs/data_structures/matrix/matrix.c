@@ -1033,3 +1033,21 @@ int getNSpecialElement(matrix m) {
     return result;
 }
 
+void test_getNSpecialElement_1() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    assert(getNSpecialElement(m) == 0);
+
+    freeMemMatrix(&m);
+}
+
+void test_getNSpecialElement_2() {
+    matrix m = createMatrixFromArray((int[]) {3, 5,5, 4,
+                                              2, 3, 6, 7,
+                                              12, 2, 1, 2},3, 4);
+
+    assert(getNSpecialElement(m) == 2);
+
+    freeMemMatrix(&m);
+}
+
