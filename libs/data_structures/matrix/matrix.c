@@ -992,3 +992,24 @@ int countEqClassesByRowsSum(matrix m) {
     return result;
 }
 
+void test_countEqClassesByRowsSum_1() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    assert(countEqClassesByRowsSum(m) == 0);
+
+    freeMemMatrix(&m);
+}
+
+void test_countEqClassesByRowsSum_2() {
+    matrix m = createMatrixFromArray((int[]) {7, 1,
+                                               2, 7,
+                                               5, 4,
+                                               4, 3,
+                                               1, 6,
+                                               8, 0},6, 2);
+
+    assert(countEqClassesByRowsSum(m) == 3);
+
+    freeMemMatrix(&m);
+}
+
