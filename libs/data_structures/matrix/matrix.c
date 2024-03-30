@@ -785,3 +785,35 @@ void test_transposeIfMatrixHasNotEqualSumOfRows_4() {
     freeMemMatrix(&result);
 }
 
+void test_isMutuallyInverseMatrices_1() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    freeMemMatrix(&m);
+}
+
+void test_isMutuallyInverseMatrices_2() {
+    matrix m1 = createMatrixFromArray((int[]) {3, -5,
+                                              1, -2},2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                               1, -3},2, 2);
+
+    assert(isMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+}
+
+void test_isMutuallyInverseMatrices_3() {
+    matrix m1 = createMatrixFromArray((int[]) {4, -5,
+                                               1, -2},2, 2);
+    matrix m2 = createMatrixFromArray((int[]) {2, -5,
+                                               1, -3},2, 2);
+
+    assert(!isMutuallyInverseMatrices(m1, m2));
+
+    freeMemMatrix(&m1);
+    freeMemMatrix(&m2);
+}
+
