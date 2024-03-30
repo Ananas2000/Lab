@@ -209,4 +209,12 @@ int getNSpecialElement2(matrix m);
 
 void test_getNSpecialElement2();
 
+double getScalarProduct(int *a, int *b, int n);
+
+double getCosine(int *a, int *b, int n);
+
+int getVectorIndexWithMaxAngle(matrix m, int *b);
+
+void test_getVectorIndexWithMaxAngle();
+
 #endif
