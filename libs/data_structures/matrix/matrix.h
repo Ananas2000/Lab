@@ -173,4 +173,10 @@ void test_getNSpecialElement_1();
 
 void test_getNSpecialElement_2();
 
+void swapPenultimateRow(matrix m);
+
+void test_swapPenultimateRow_1();
+
+void test_swapPenultimateRow_2();
+
 #endif
