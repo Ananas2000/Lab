@@ -876,3 +876,31 @@ int getMinInArea(matrix m) {
     }
 }
 
+void test_getMinInArea_1() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    assert(getMinInArea(m) == 0);
+
+    freeMemMatrix(&m);
+}
+
+void test_getMinInArea_2() {
+    matrix m = createMatrixFromArray((int[]) {10, 7, 5, 6,
+                                              3, 11, 8, 9,
+                                              4, 1, 12, 2},3, 4);
+
+    assert(getMinInArea(m) == 5);
+
+    freeMemMatrix(&m);
+}
+
+void test_getMinInArea_3() {
+    matrix m = createMatrixFromArray((int[]) {6, 8, 9, 2,
+                                               7, 12, 3, 4,
+                                               10, 11, 5, 1},3, 4);
+
+    assert(getMinInArea(m) == 6);
+
+    freeMemMatrix(&m);
+}
+

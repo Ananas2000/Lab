@@ -145,4 +145,10 @@ void test_findSumOfMaxesOfPseudoDiagonal();
 
 int getMinInArea(matrix m);
 
+void test_getMinInArea_1();
+
+void test_getMinInArea_2();
+
+void test_getMinInArea_3();
+
 #endif
