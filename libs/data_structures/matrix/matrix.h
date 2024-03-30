@@ -159,4 +159,8 @@ void sortByDistances(matrix m);
 
 void test_sortByDistances();
 
+int countNUnique(int *a, int n);
+
+int countEqClassesByRowsSum(matrix m);
+
 #endif
