@@ -689,3 +689,43 @@ void test_sortColsByMinElement_2() {
     freeMemMatrix(&m);
 }
 
+void test_getSquareOfMatrixIfSymmetric_1() {
+    matrix m = createMatrixFromArray((int[]) {1, 4, 2,
+                                              4, 3, 6,
+                                              2, 6, 5},3, 3);
+    matrix result = createMatrixFromArray((int[]) {21, 28, 36,
+                                              28, 61, 56,
+                                              36, 56, 65},3, 3);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_getSquareOfMatrixIfSymmetric_2() {
+    matrix m = createMatrixFromArray((int[]) {1, 4, 2,
+                                              3, 3, 6,
+                                              2, 6, 5},3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 4, 2,
+                                              3, 3, 6,
+                                              2, 6, 5},3, 3);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_getSquareOfMatrixIfSymmetric_3() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    getSquareOfMatrixIfSymmetric(&m);
+
+    freeMemMatrix(&m);
+}
+

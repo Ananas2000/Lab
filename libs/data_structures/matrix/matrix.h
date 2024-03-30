@@ -117,4 +117,10 @@ void test_sortColsByMinElement_1();
 
 void test_sortColsByMinElement_2();
 
+void test_getSquareOfMatrixIfSymmetric_1();
+
+void test_getSquareOfMatrixIfSymmetric_2();
+
+void test_getSquareOfMatrixIfSymmetric_3();
+
 #endif
