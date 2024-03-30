@@ -141,4 +141,6 @@ int max(int a, int b);
 
 long long findSumOfMaxesOfPseudoDiagonal(matrix m);
 
+void test_findSumOfMaxesOfPseudoDiagonal();
+
 #endif
