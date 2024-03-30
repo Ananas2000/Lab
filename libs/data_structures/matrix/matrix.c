@@ -729,3 +729,59 @@ void test_getSquareOfMatrixIfSymmetric_3() {
     freeMemMatrix(&m);
 }
 
+void test_transposeIfMatrixHasNotEqualSumOfRows_1() {
+    matrix m = createMatrixFromArray((int[]) {},0, 0);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    freeMemMatrix(&m);
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_2() {
+    matrix m = createMatrixFromArray((int[]) {1, 4, 2,
+                                              3, 3, 6,
+                                              2, 6, 5},3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 3, 2,
+                                                   4, 3, 6,
+                                                   2, 6, 5},3, 3);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_3() {
+    matrix m = createMatrixFromArray((int[]) {1, 4, 2, 4,
+                                              3, 3, 6, 5,
+                                              2, 6, 5, 7},3, 4);
+    matrix result = createMatrixFromArray((int[]) {1, 4, 2, 4,
+                                              3, 3, 6, 5,
+                                              2, 6, 5, 7},3, 4);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_4() {
+    matrix m = createMatrixFromArray((int[]) {1, 4, 2,
+                                              4, 1, 2,
+                                              1, 1, 5},3, 3);
+    matrix result = createMatrixFromArray((int[]) {1, 4, 2,
+                                                   4, 1, 2,
+                                                   1, 1, 5},3, 3);
+
+    transposeIfMatrixHasNotEqualSumOfRows(&m);
+
+    assert(areTwoMatricesEqual(&m, &result));
+
+    freeMemMatrix(&m);
+    freeMemMatrix(&result);
+}
+

@@ -123,4 +123,12 @@ void test_getSquareOfMatrixIfSymmetric_2();
 
 void test_getSquareOfMatrixIfSymmetric_3();
 
+void test_transposeIfMatrixHasNotEqualSumOfRows_1();
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_2();
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_3();
+
+void test_transposeIfMatrixHasNotEqualSumOfRows_4();
+
 #endif
