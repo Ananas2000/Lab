@@ -1013,3 +1013,23 @@ void test_countEqClassesByRowsSum_2() {
     freeMemMatrix(&m);
 }
 
+int getNSpecialElement(matrix m) {
+    int result = 0;
+
+    for (int i = 0; i < m.nCols; i++) {
+        int sum = 0;
+
+        for (int j = 0; j < m.nRows; j++) {
+            sum += m.values[j][i];
+        }
+
+        for (int j = 0; j < m.nRows; j++) {
+            if (m.values[j][i] > sum - m.values[j][i]) {
+                result++;
+            }
+        }
+    }
+
+    return result;
+}
+
