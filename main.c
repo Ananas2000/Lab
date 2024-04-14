@@ -4,8 +4,10 @@
 #include "libs/data_structures/vector/vector.h"
 #include "libs/data_structures/vector/vectorVoid.h"
 #include "libs/data_structures/matrix/matrix.h"
+#include "libs/data_structures/string/string.h"
 
 int main() {
-    tests();
+    void tests_find_str();
+    
     return 0;
 }
