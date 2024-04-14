@@ -14,6 +14,8 @@ char* findNonSpaceReverse(char *rbegin, const char *rend);
 
 char* findSpaceReverse(char *rbegin, const char *rend);
 
+int strcmp(const char *lhs, const char *rhs);
+
 void test_find1();
 
 void test_find2();
@@ -55,5 +57,11 @@ void test_find_space_reverse3();
 void test_find_space_reverse4();
 
 void tests_find_str();
+
+void test_strcmp1();
+
+void test_strcmp2();
+
+void test_strcmp3();
 
 #endif

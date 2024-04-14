@@ -45,6 +45,14 @@ char *findSpaceReverse(char *rbegin, const char *rend) {
     return rbegin;
 }
 
+int strcmp(const char *lhs, const char *rhs) {
+    while (*lhs == *rhs && *lhs != '\0' && *rhs != '\0') {
+        lhs++;
+        rhs++;
+    }
+    return *lhs - *rhs;
+}
+
 void test_find1() {
     char string[] = "hello";
 
@@ -165,6 +173,27 @@ void test_find_space_reverse4() {
     assert(findSpaceReverse(string + 4, string) == string);
 }
 
+void test_strcmp1() {
+    char string1[] = "Hello";
+    char string2[] = "Hello";
+
+    assert(strcmp(string1, string2) == 0);
+}
+
+void test_strcmp2() {
+    char string1[] = "Hello";
+    char string2[] = "Hallo";
+
+    assert(strcmp(string1, string2) > 0);
+}
+
+void test_strcmp3() {
+    char string1[] = "Hello";
+    char string2[] = "Hellower";
+
+    assert(strcmp(string1, string2) < 0);
+}
+
 void tests_find_str() {
     test_find1();
     test_find2();
@@ -186,4 +215,7 @@ void tests_find_str() {
     test_find_space_reverse2();
     test_find_space_reverse3();
     test_find_space_reverse4();
+    test_strcmp1();
+    test_strcmp2();
+    test_strcmp3();
 }
