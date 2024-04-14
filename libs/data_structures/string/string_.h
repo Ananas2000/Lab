@@ -16,6 +16,12 @@ char* findSpaceReverse(char *rbegin, const char *rend);
 
 int strcmp(const char *lhs, const char *rhs);
 
+char* copy(const char *beginSource, const char *endSource, char *beginDestination);
+
+char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int));
+
+char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int));
+
 void test_find1();
 
 void test_find2();
@@ -63,5 +69,11 @@ void test_strcmp1();
 void test_strcmp2();
 
 void test_strcmp3();
+
+void test_copy();
+
+void test_copyIf();
+
+void test_copyIfReverse();
 
 #endif

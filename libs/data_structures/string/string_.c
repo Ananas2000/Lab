@@ -1,6 +1,7 @@
 #include "string_.h"
 #include <stdio.h>
 #include <ctype.h>
+#include <memory.h>
 #include <assert.h>
 
 size_t strlen_(const char *begin) {
@@ -51,6 +52,45 @@ int strcmp(const char *lhs, const char *rhs) {
         rhs++;
     }
     return *lhs - *rhs;
+}
+
+char* copy(const char *beginSource, const char *endSource, char *beginDestination) {
+    size_t size = endSource - beginSource;
+    memcpy(beginDestination, beginSource, size);
+    *(beginDestination + size) = '\0';
+
+    return beginDestination + size;
+}
+
+char* copyIf(char *beginSource, const char *endSource, char *beginDestination, int (*f)(int)) {
+    while (beginSource != endSource) {
+        if (f( *beginSource)) {
+            *beginDestination = *beginSource;
+            beginDestination++;
+        }
+        beginSource++;
+    }
+    *beginDestination = '\0';
+
+    return beginDestination;
+}
+
+char* copyIfReverse(char *rbeginSource, const char *rendSource, char *beginDestination, int (*f)(int)) {
+    char *beginDestination_ = beginDestination;
+    while (rbeginSource >= rendSource) {
+        if (f(*rbeginSource)) {
+            *beginDestination_ = *rbeginSource;
+            beginDestination_++;
+        }
+        rbeginSource--;
+    }
+    *beginDestination_ = '\0';
+
+    return beginDestination_;
+}
+
+int is_h(char s) {
+    return s == 'h' || s == 'w';
 }
 
 void test_find1() {
@@ -194,6 +234,33 @@ void test_strcmp3() {
     assert(strcmp(string1, string2) < 0);
 }
 
+void test_copy() {
+    char string[] = "hahh";
+    char new_string[4];
+    copy(string, string + 3, new_string);
+    char result[] = "hah";
+
+    assert(strcmp(new_string, result) == 0);
+}
+
+void test_copyIf() {
+    char string[] = "hahh";
+    char new_string[4];
+    copyIf(string, string + 3, new_string, (int (*)(int)) is_h);
+    char result[] = "hh";
+
+    assert(strcmp(new_string, result) == 0);
+}
+
+void test_copyIfReverse() {
+    char string[] = "haw";
+    char new_string[3];
+    copyIfReverse(string + 3, string, new_string, (int (*)(int)) is_h);
+    char result[] = "wh";
+
+    assert(strcmp(new_string, result) == 0);
+}
+
 void tests_find_str() {
     test_find1();
     test_find2();
@@ -218,4 +285,7 @@ void tests_find_str() {
     test_strcmp1();
     test_strcmp2();
     test_strcmp3();
+    test_copy();
+    test_copyIf();
+    test_copyIfReverse();
 }
