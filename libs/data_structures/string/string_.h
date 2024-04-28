@@ -138,62 +138,16 @@ void replace_digits_with_spaces(char *string);
 
 void test_replace_digits_with_spaces();
 
-bool are_two_words_equal(WordDescriptor a, WordDescriptor b) {
-    char *readBuffer1 = a.begin;
-    char *readBuffer2 = b.begin;
+bool are_two_words_equal(WordDescriptor a, WordDescriptor b);
 
-    while ((*readBuffer1 != ' ' || *readBuffer2 != ' ') && (*readBuffer1 != '\0' && *readBuffer2 != '\0')) {
-        if (*readBuffer1 != *readBuffer2 != '\0') {
-            return 0;
-        }
+void replace(char *source, char *w1, char *w2);
 
-        readBuffer1++;
-        readBuffer2++;
-    }
+void test_replace();
 
-    return readBuffer1 == a.end && readBuffer2 == b.end;
-}
+bool are_two_words_ordered(WordDescriptor word1, WordDescriptor word2);
 
-void replace(char *source, char *w1, char *w2) {
-    size_t w1Size = strlen_(w1);
-    size_t w2Size = strlen_(w2);
-    WordDescriptor word1 = {w1, w1 + w1Size};
-    WordDescriptor word2 = {w2, w2 + w2Size};
-    WordDescriptor word;
-    char _stringBuffer[MAX_STRING_SIZE + 1];
-    char *readPtr, *recPtr;
+bool are_words_ordered(char *string);
 
-    if (w1Size >= w2Size) {
-        readPtr = source;
-        recPtr = source;
-    } else {
-        copy(source, source + strlen_(source), _stringBuffer);
-        readPtr = _stringBuffer;
-        recPtr = source;
-    }
-
-    while (getWord(readPtr, &word)) {
-        WordDescriptor res = word2;
-
-        if (!are_two_words_equal(word, word1)) {
-            res = word;
-        }
-
-        for (char *cp = res.begin; cp != res.end; cp++) {
-            *recPtr++ = *cp;
-        }
-
-        *recPtr++ = ' ';
-        readPtr = word.end;
-    }
-
-    *(recPtr - 1) = '\0';
-}
-
-void test_replace() {
-    char string[] = "0/15/2 who? -=-";
-    replace(string, "who?", "Yasuo");
-    ASSERT_STRING("0/15/2 Yasuo -=-", string);
-}
+void test_are_words_ordered();
 
 #endif
