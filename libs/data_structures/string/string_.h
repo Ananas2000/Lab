@@ -189,4 +189,11 @@ WordBeforeFirstWordWithAReturnCode getWordBeforeFirstWordWithA(char *s, WordDesc
 
 void test_getWordBeforeFirstWordWithA();
 
+void wordDescriptorToString(WordDescriptor word, char *destination);
+
+char* getLastWordInFirstStringInSecondString(char *s1, char *s2);
+
+void test_getLastWordInFirstStringInSecondString();
+
+
 #endif
