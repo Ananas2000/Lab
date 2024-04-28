@@ -4,7 +4,7 @@
 #include "libs/data_structures/vector/vector.h"
 #include "libs/data_structures/vector/vectorVoid.h"
 #include "libs/data_structures/matrix/matrix.h"
-#include "libs/data_structures/string/string.h"
+#include "libs/data_structures/string/string_.h"
 
 int main() {
     void tests_find_str();
