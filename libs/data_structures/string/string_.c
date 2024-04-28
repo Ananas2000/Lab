@@ -863,3 +863,28 @@ void test_getLastWordInFirstStringInSecondString() {
     char s3_2[] = "Two Four";
     ASSERT_STRING(getLastWordInFirstStringInSecondString(s3_1, s3_2), "");
 }
+
+bool has_same_words(char *string) {
+    getBagOfWords(&_bag, string);
+
+    for (int i = 0; i < _bag.size; i++) {
+        for (int j = i + 1; j < _bag.size; j++) {
+            if (are_two_words_equal(_bag.words[i], _bag.words[j])) {
+                return 1;
+            }
+        }
+    }
+
+    return 0;
+}
+
+void test_has_same_words() {
+    char s1[] = "";
+    assert(!has_same_words(s1));
+
+    char s2[] = "one two three";
+    assert(!has_same_words(s2));
+
+    char s3[] = "one two one";
+    assert(has_same_words(s3));
+}
