@@ -84,4 +84,27 @@ void assertString(const char *expected, char *got, char const *fileName, char co
 
 void test_removeNonLetters();
 
+void removeExtraSpaces(char *s);
+
+void test_removeExtraSpaces_1();
+
+void removeAdjacentEqualLetters(char *s);
+
+void test_removeAdjacentEqualLetters();
+
+char* copy_if_not_extra_spaces(char *beginSource, const char *endSource, char *beginDestination);
+
+void removeExtraSpaces(char *s);
+
+void test_removeExtraSpaces_1();
+
+void test_removeExtraSpaces_2();
+
+void test_removeExtraSpaces_3();
+
+void removeAdjacentEqualLetters(char *s);
+
+void test_removeAdjacentEqualLetters();
+
+
 #endif
