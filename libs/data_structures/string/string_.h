@@ -8,11 +8,17 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-typedef struct WordDescriptor {
+typedef struct WordDescriptor{
     char *begin;
     char *end;
 
 } WordDescriptor;
+
+typedef struct BagOfWords{
+    WordDescriptor words[MAX_N_WORDS_IN_STRING];
+    size_t size;
+
+} BagOfWords;
 
 size_t strlen_(const char *begin);
 
@@ -149,5 +155,11 @@ bool are_two_words_ordered(WordDescriptor word1, WordDescriptor word2);
 bool are_words_ordered(char *string);
 
 void test_are_words_ordered();
+
+void getBagOfWords(BagOfWords *bag, char *s);
+
+void print_words_in_reversed_order(char *string);
+
+void test_print_words_in_reversed_order();
 
 #endif
