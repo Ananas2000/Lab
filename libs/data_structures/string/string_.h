@@ -224,9 +224,15 @@ void delete_palindromes(char *string);
 
 void test_delete_palindromes();
 
-void complement_smaller_string(char *string1, int n1, char *string2, int n2);
+char* getEndOfString(char *s);
 
-void test_complement_smaller_string();
+char* word_copy(char *dst, WordDescriptor src);
+
+void fill_str_words(char* s, BagOfWords bag, size_t start_copy_index);
+
+void complement_smaller_string(char* string1, char* string2);
+
+//void test_complement_smaller_string();
 
 bool is_string_contain_all_letter(char *string, char *word);
 

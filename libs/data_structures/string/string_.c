@@ -1065,7 +1065,7 @@ void test_delete_palindromes() {
     ASSERT_STRING(s4, "");
 }
 
-void complement_smaller_string(char *string1, char *string2) {
+/*void complement_smaller_string(char *string1, char *string2) {
     getBagOfWords(&_bag, string1);
     getBagOfWords(&_bag2, string2);
     if (_bag.size > _bag2.size) {
@@ -1114,6 +1114,42 @@ void test_complement_smaller_string() {
     complement_smaller_string(s4_1, s4_2);
     ASSERT_STRING(s4_1, "zero one two");
 }
+*/
+
+char* getEndOfString(char *s) {
+    char *end = s + strlen_(s);
+    return end;
+}
+
+char* word_copy(char *dst, WordDescriptor src){
+    return copy(src.begin, src.end, dst);
+}
+
+void fill_str_words(char* s, BagOfWords bag, size_t start_copy_index) {
+    char *ptr = getEndOfString(s);
+    if (ptr != s){
+        *ptr = ' ';
+        ptr++;
+    }
+    for (size_t i = start_copy_index; i < bag.size; ++i) {
+        ptr = word_copy(ptr, bag.words[i]);
+        *ptr = ' ';
+        ptr++;
+    }
+    ptr--;
+    *ptr = '\0';
+}
+
+void complement_smaller_string(char* s1, char* s2) {
+    getBagOfWords(&_bag, s1);
+    getBagOfWords(&_bag2, s2);
+    if (_bag.size > _bag2.size){
+        fill_str_words(s2, _bag, _bag2.size);
+    }
+    if (_bag.size < _bag2.size){
+        fill_str_words(s1, _bag2, _bag.size);
+    }
+}
 
 bool is_string_contain_all_letter(char *string, char *word) {
     if (strlen_(word) == 0) {
@@ -1145,3 +1181,4 @@ void test_is_string_contain_all_letter() {
     char w3[] = "zed";
     assert(!is_string_contain_all_letter(s3, w3));
 }
+
