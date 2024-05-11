@@ -6,6 +6,8 @@
 #include "libs/data_structures/matrix/matrix.h"
 #include "libs/data_structures/string/string_.h"
 #include "libs/data_structures/file/file_.h"
+#include <windows.h>
+#include <locale.h>
 
 int main() {
     test_file1();
