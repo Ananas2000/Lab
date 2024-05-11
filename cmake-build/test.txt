@@ -1,2 +1,4 @@
-zero
-hero
+eleven
+keyboard
+Goodbye
+aboba
