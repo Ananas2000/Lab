@@ -568,7 +568,65 @@ void test_task_10(int argc, char **argv) {
     task_10(file_name, n);
 }
 
+bool is_prefix(char *string, char *prefix) {
+    bool result = true;
+    char buffer_string = *string;
+    char buffer_prefix = *prefix;
 
+    while ((*string != '\0' || *prefix != '\0') && result) {
+        if (*prefix == '\0') {
+            return result;
+        } else if (*string == '\0') {
+            result = false;
+        } else {
+            if (*prefix != *string) {
+                result = false;
+            }
+            prefix++;
+            string++;
+        }
+    }
+
+    return result;
+}
+
+void task_11() {
+    int n, q;
+    scanf("%d %d", &n, &q);
+    char dictionary[n][MAX_STRING_SIZE];
+
+    for (int i = 0; i < n; i++) {
+        scanf("%s", dictionary[i]);
+    }
+
+    for (int i = 0; i < q; i++) {
+        int k;
+        char p[MAX_STRING_SIZE];
+        scanf("%d %s", &k, p);
+
+        int index = 1;
+        bool is_word_founded = false;
+
+        for (int j = 0; j < n && !is_word_founded; j++) {
+            if (is_prefix(dictionary[j], p)) {
+                if (index == k) {
+                    printf("%d\n", j + 1);
+                    is_word_founded = true;
+                } else {
+                    index++;
+                }
+            }
+        }
+
+        if (!is_word_founded) {
+            printf("-1\n");
+        }
+    }
+}
+
+void test_task_11() {
+    task_11();
+}
 
 int main(int argc, char **argv) {
 /*    test_task_1();
@@ -579,8 +637,9 @@ int main(int argc, char **argv) {
     test_task_6();
     test_task_7();
     test_task_8();
-    test_task_9(argc, argv);*/
-    test_task_10(argc, argv);
+    test_task_9(argc, argv);
+    test_task_10(argc, argv);*/
+    test_task_11();
 
     return 0;
 }
