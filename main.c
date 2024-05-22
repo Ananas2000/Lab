@@ -474,7 +474,6 @@ void test_task_8() {
     assert(strcmp(result_2, true_data_2) == 0);
 }
 
-
 int main() {
     test_task_1();
     test_task_2();
