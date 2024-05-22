@@ -18,6 +18,11 @@ typedef struct domain {
     char *name;
 } domain;
 
+typedef struct prefix {
+    int size;
+    int begin_index;
+    int end_index;
+} prefix;
 
 int** task_1(int n, int query[][4], size_t size) {
     matrix result = getMemMatrix(n, n);
@@ -351,6 +356,99 @@ void test_task_6() {
     assert(strcmp(result, true_data) == 0);
 }
 
+int get_max_element_index(int *nums, int begin_index, int end_index) {
+    int max_number = nums[begin_index];
+    int max_number_index = begin_index;
+
+    for (int i = begin_index + 1; i <= end_index; i++) {
+        if (nums[i] > max_number) {
+            max_number = nums[i];
+            max_number_index = i;
+        }
+    }
+    return max_number_index;
+}
+
+void get_new_node(int *nums, int size, prefix pref) {
+    int max_element_index = get_max_element_index(nums, pref.begin_index, pref.end_index);
+    printf("%d, ", nums[max_element_index]);
+    if (pref.size > 1) {
+        prefix left_prefix;
+        left_prefix.size = max_element_index - pref.begin_index;
+        if (left_prefix.size > 0) {
+            left_prefix.begin_index = pref.begin_index;
+            left_prefix.end_index = pref.begin_index + left_prefix.size - 1;
+        }
+        prefix right_prefix;
+        right_prefix.size = pref.end_index - max_element_index;
+        if (right_prefix.size > 0) {
+            right_prefix.end_index = pref.end_index;
+            right_prefix.begin_index = right_prefix.end_index - right_prefix.size + 1;
+        }
+        if (left_prefix.size > 0 && right_prefix.size > 0) {
+            get_new_node(nums, size, left_prefix);
+            get_new_node(nums, size, right_prefix);
+        } else if (right_prefix.size > 0) {
+            printf("null, ");
+            get_new_node(nums, size, right_prefix);
+        } else {
+            get_new_node(nums, size, left_prefix);
+            printf("null, ");
+        }
+    }
+}
+
+void task_7(int *nums, int size) {
+    if (size == 0) {
+        printf("{}\n");
+        return;
+    }
+    printf("{");
+    int max_element_index = get_max_element_index(nums, 0, size - 1);
+    printf("%d, ", nums[max_element_index]);
+
+    if (size > 1) {
+        prefix left_prefix;
+        left_prefix.size = max_element_index;
+        if (left_prefix.size > 0) {
+            left_prefix.begin_index = 0;
+            left_prefix.end_index = max_element_index - 1;
+        }
+        prefix right_prefix;
+        right_prefix.size = size - max_element_index - 1;
+        if (right_prefix.size > 0) {
+            right_prefix.begin_index = max_element_index + 1;
+            right_prefix.end_index = size - 1;
+        }
+
+        if (left_prefix.size > 0 && right_prefix.size > 0) {
+            get_new_node(nums, size, left_prefix);
+            get_new_node(nums, size, right_prefix);
+        } else if (right_prefix.size > 0) {
+            printf("null, ");
+            get_new_node(nums, size, right_prefix);
+        } else {
+            get_new_node(nums, size, left_prefix);
+            printf("null, ");
+        }
+    }
+    printf("\b\b}\n");
+}
+
+void test_task_7() {
+    int nums_1[6] = {3, 2, 1, 6, 0, 5};
+    int size_1 = 6;
+    task_7(nums_1, size_1);
+    int nums_2[3] = {3, 2, 1};
+    int size_2 = 3;
+    task_7(nums_2, size_2);
+    int nums_3[5] = {5, 3, 2, 4, 1};
+    int size_3 = 5;
+    task_7(nums_3, size_3);
+    int nums_4[5] = {2, 3, 1, 4, 5};
+    int size_4 = 5;
+    task_7(nums_4, size_4);
+}
 
 int main() {
     test_task_1();
@@ -359,6 +457,7 @@ int main() {
     test_task_4();
     test_task_5();
     test_task_6();
+    test_task_7();
 
     return 0;
 }
